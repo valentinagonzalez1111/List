@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct Meteo: View {
+    var weather: Weather
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        Image(systemName: weather.climaIcon)
+            .resizable()
+            .frame(width: 120, height: 120)
     }
 }
-struct Lista {
 
-}
+
 struct Meteo_Previews: PreviewProvider {
     static var previews: some View {
-        Meteo()
+        Meteo(weather: Weather(clima: "sun", climaIcon: "sun.max.fill"))
     }
 }

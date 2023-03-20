@@ -11,26 +11,26 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                List(climas) { climat in
+                List(climas) { weather in
                     NavigationLink(destination: {
-                        Meteo()
+                        Meteo(weather: weather)
                     }, label: {
-                        HStack(){
-                            Image(systemName: climat.climaIcon)
+                        HStack {
+                            Image(systemName: weather.climaIcon)
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.black)
-                            Text(climat.clima)
+                            Text(weather.clima)
                                 .font(.body)
                                 .fontWeight(.bold)
                         }
-                        .padding()
                     })
                 }
             }
             .navigationBarTitle("Weather")
         }
     }
+}
     struct Weather: Identifiable {
         var id = UUID()
         var clima: String
@@ -51,4 +51,4 @@ struct ContentView: View {
             ContentView()
         }
     }
-}
+
